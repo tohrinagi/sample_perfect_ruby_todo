@@ -60,7 +60,6 @@ module Todo
         sub_command_parsers['delete'] = OptionParser.new do |opt|
           opt.banner = 'Usage: delete <args>'
           opt.on_tail('-h', '--help', 'Show this message' ) {|v| help_sub_command(opt) }
-          opt.on_tail('-h', '--help', 'Show this message' ) {|v| help_sub_command(opt) }
         end
 
         sub_command_parsers
