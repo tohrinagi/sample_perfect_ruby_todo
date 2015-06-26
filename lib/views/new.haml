@@ -1,20 +1,9 @@
 %h1 New Task
 
-- if @task.errors.any?
-  .alert.alert-error
-    %ul
-      - @task.errors.full_messages.each do |msg|
-        %li= msg
+!= haml :_errors, locals: {task: @task}
 
 %form.form-horizontal(method='post' action='/tasks')
-  .control-group{class: (@task.errors.has_key?(:name) ? 'error' : '' )}
-    %label.control-label(for='task_name') Name
-    .controls
-      %input#task_name.span3(name='name' placeholder='例：買い物' type='text'){value: @task.name}
-  .control-group{class: (@task.errors.has_key?(:content) ? 'error' : '')}
-    %label.control-label(for='task_content') Content
-    .controls
-      %input#task_content.span3(name='content' placeholder='例：牛乳を買う' type='text'){value: @task.content}
+  != haml :_form, locals: {task: @task}
   .control-group
     .controls
       %input.btn(name='commit' type='submit' value='Create')
